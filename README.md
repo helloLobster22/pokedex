@@ -1,5 +1,5 @@
 # Pokedex
-The encyclopedia of Pokémon.
+The encyclopedia of Pokémons.
 
 ## Table of Contents
 - Genera Info
