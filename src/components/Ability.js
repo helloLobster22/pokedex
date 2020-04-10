@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Ability() {
   return (
-    <div>
+    <div class="ability">
       <p>Power</p>
-      <progress id="file" min="0" max="100" value="70">
-        70%
-      </progress>
+      <div className="progressbar">
+        <div style={{ width: "25%" }}></div>
+      </div>
     </div>
   );
 }

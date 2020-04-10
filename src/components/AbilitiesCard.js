@@ -5,6 +5,10 @@ export default function AbilitiesCard() {
   return (
     <div>
       <Ability />
+      <Ability />
+      <Ability />
+      <Ability />
+      <Ability />
     </div>
   );
 }

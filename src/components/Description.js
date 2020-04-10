@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Description() {
-  return <div>Pikachu is cool.</div>;
+  return <div className="description">Pikachu is cool.</div>;
 }

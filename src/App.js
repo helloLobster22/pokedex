@@ -35,7 +35,7 @@ function App() {
     setUrl(prev);
   }
 
-  if (loading) return "Loading...";
+  //if (loading) return "Loading...";
 
   return (
     <div className="pokedex">
