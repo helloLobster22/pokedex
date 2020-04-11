@@ -2,50 +2,83 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BrowseBox from "./containers/BrowseBox";
 import InfoBox from "./containers/InfoBox";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
-  const [next, setNext] = useState();
-  const [prev, setPrev] = useState();
+  const [url, setUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=964"
+  );
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pokemonsPerPage, setPokemonsPerPage] = useState(13);
   const [loading, setLoading] = useState(true);
+  const [searchPokemon, setSearchPokemon] = useState("");
 
   useEffect(() => {
-    setLoading(true);
-    let cancel;
-    axios
-      .get(url, {
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      })
-      .then((res) => {
-        setLoading(false);
-        setNext(res.data.next);
-        setPrev(res.data.previous);
-        setPokemons(res.data.results.map((p) => p.name));
-      });
+    const fetchPokemons = async () => {
+      setLoading(true);
+      const res = await axios.get(url);
+      setPokemons(res.data.results);
+      setLoading(false);
+    };
 
-    return () => cancel();
-  }, [url]);
+    fetchPokemons();
+  }, []);
 
   function NextPage() {
-    setUrl(next);
+    setCurrentPage(currentPage + 1);
   }
 
   function PrevPage() {
-    setUrl(prev);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   }
 
-  //if (loading) return "Loading...";
+  // for current pokemons
+  let indexOfLastPokemon = currentPage * pokemonsPerPage;
+  let indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
+  let currentPokemons = pokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
+
+  function handleInput(input) {
+    setCurrentPage(1);
+    setSearchPokemon(input.target.value);
+  }
+
+  let filteredPokemons = pokemons.filter((pokemon) => {
+    return pokemon.name.startsWith(searchPokemon);
+  });
+
+  // for filtered
+  let indexOfLastPokemonSearched = currentPage * pokemonsPerPage;
+  let indexOfFirstPokemonSearched =
+    indexOfLastPokemonSearched - pokemonsPerPage;
+  let currentPokemonsSearched = filteredPokemons.slice(
+    indexOfFirstPokemonSearched,
+    indexOfLastPokemonSearched
+  );
+
+  if (loading) return "Loading..";
 
   return (
-    <div className="pokedex">
-      <BrowseBox
-        pokemons={pokemons}
-        toNextPage={next ? NextPage : null}
-        toPrevPage={prev ? PrevPage : null}
-      />
-      <InfoBox />
-    </div>
+    <Router>
+      <div className="pokedex">
+        <BrowseBox
+          pokemons={
+            searchPokemon !== "" ? currentPokemonsSearched : currentPokemons
+          }
+          toNextPage={NextPage}
+          toPrevPage={PrevPage}
+          handleInput={handleInput}
+        />
+        <div className="right">
+          <Switch>
+            <Route path="/home" exact component={InfoBox} />
+            <Route path="/:pokemonName" component={InfoBox} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 

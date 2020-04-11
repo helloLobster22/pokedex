@@ -27,6 +27,13 @@
   width: 200px;
   transform: translate(-14%, -10%);
 }
+.pokeballShadow {
+  transform: translate(-14%, -112%);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 10px 33px 0px rgba(0, 0, 0, 0.75);
+}
 .pagination {
   text-align: center;
 }
@@ -34,16 +41,23 @@
   width: 50px;
   cursor: pointer;
   margin: 10px 10px 0;
+  position: absolute;
+  bottom: 15px;
 }
 .pokemonList {
   text-align: center;
-  margin-top: -10px;
+  margin-top: -155px;
+}
+.pokemonList > a {
+  text-decoration: none;
 }
 .pokemonIndex {
+  color: #333333;
   font-weight: 400;
   text-transform: capitalize;
-  letter-spacing: 1px;
+  letter-spacing: -1px;
   cursor: pointer;
+  margin-bottom: 6px;
 }
 .pokemonIndex:hover {
   background-color: aqua;
@@ -67,8 +81,8 @@
   text-align: center;
 }
 .pokemon > img {
-  width: 220px;
-  margin: -25px;
+  width: 165px;
+  margin: 5px;
 }
 .ability {
   display: flex;
@@ -76,25 +90,44 @@
   margin-bottom: 18px;
 }
 .progressbar {
-  margin-left: 20px;
   padding: 5px;
-  width: 300px;
+  width: 220px;
   height: 20px;
   border-radius: 20px;
   background-color: #555555;
+  position: absolute;
+  left: 190px;
 }
 .progressbar > div {
   height: 10px;
   border-radius: 20px 8px 8px 20px;
-  background-color: rgb(43, 194, 83);
 }
 .description {
+  font-size: 13px;
   background-color: rgba(61, 61, 61, 0.4);
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20%;
+  height: 13%;
   border-radius: 0 0 10px 10px;
-  padding: 10px;
+  padding: 5px 20px;
+  line-height: 2.5;
+}
+.description > p > span {
+  margin-right: 40px;
+}
+.search {
+  position: absolute;
+  top: 210px;
+  left: 35px;
+}
+.search > input[type="text"] {
+  width: 125px;
+  border: 2px solid #ccc;
+  transition: 0.3s;
+}
+.search > input[type="text"]:focus {
+  outline: none;
+  border: 2px solid #555;
 }

@@ -1,12 +1,14 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import Pokemon from "./Pokemon";
 
-export default function PokemonList({ pokemons }) {
+export default function PokemonList(props) {
   return (
     <div className="pokemonList">
-      {pokemons.map((pokemon) => (
-        <div key={pokemon} className="pokemonIndex">
-          {pokemon}
-        </div>
+      {props.pokemons.map((pokemon) => (
+        <NavLink to={`/${pokemon.name}`} key={pokemon.name}>
+          <div className="pokemonIndex">{pokemon.name}</div>
+        </NavLink>
       ))}
     </div>
   );

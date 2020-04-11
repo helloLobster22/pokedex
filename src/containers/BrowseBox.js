@@ -1,14 +1,16 @@
 import React from "react";
 import Pagination from "../components/Pagination";
 import PokemonList from "../components/PokemonList";
+import Search from "../components/Search";
 import FavPokemons from "../components/FavPokemons";
 
-export default function BrowseBox({ pokemons, toNextPage, toPrevPage }) {
+export default function BrowseBox(props) {
   return (
     <section className="browseBox">
       <FavPokemons />
-      <PokemonList pokemons={pokemons}></PokemonList>
-      <Pagination toNextPage={toNextPage} toPrevPage={toPrevPage} />
+      <Search handleInput={props.handleInput} />
+      <PokemonList pokemons={props.pokemons}></PokemonList>
+      <Pagination toNextPage={props.toNextPage} toPrevPage={props.toPrevPage} />
     </section>
   );
 }
