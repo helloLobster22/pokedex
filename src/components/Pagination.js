@@ -8,14 +8,12 @@ export default function Pagination(props) {
       <img
         src={prev}
         onClick={props.toPrevPage}
-        style={{ left: "10px" }}
-        className="paginationBtn"
+        className="paginationBtn leftBtn"
       ></img>
       <img
         src={next}
         onClick={props.toNextPage}
-        style={{ left: "115px" }}
-        className="paginationBtn"
+        className="paginationBtn rightBtn"
       ></img>
     </div>
   );

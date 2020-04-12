@@ -7,9 +7,12 @@ import FavPokemons from "../components/FavPokemons";
 export default function BrowseBox(props) {
   return (
     <section className="browseBox">
-      <FavPokemons />
-      <Search handleInput={props.handleInput} />
-      <PokemonList pokemons={props.pokemons}></PokemonList>
+      <FavPokemons activeMobileFunc={props.activeMobileFunc} />
+      <Search handleInput={props.handleInput} isActive={props.isActive} />
+      <PokemonList
+        pokemons={props.pokemons}
+        isActive={props.isActive}
+      ></PokemonList>
       <Pagination toNextPage={props.toNextPage} toPrevPage={props.toPrevPage} />
     </section>
   );

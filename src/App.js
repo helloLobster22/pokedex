@@ -13,6 +13,7 @@ function App() {
   const [pokemonsPerPage, setPokemonsPerPage] = useState(13);
   const [loading, setLoading] = useState(true);
   const [searchPokemon, setSearchPokemon] = useState("");
+  const [activeMobile, setActiveMobile] = useState(false);
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -26,7 +27,12 @@ function App() {
   }, []);
 
   function NextPage() {
-    setCurrentPage(currentPage + 1);
+    if (
+      currentPage < Math.ceil(pokemons.length / pokemonsPerPage) &&
+      currentPage < Math.ceil(filteredPokemons.length / pokemonsPerPage)
+    ) {
+      setCurrentPage(currentPage + 1);
+    }
   }
 
   function PrevPage() {
@@ -58,6 +64,11 @@ function App() {
     indexOfLastPokemonSearched
   );
 
+  function activeMobileFunc() {
+    setActiveMobile(!activeMobile);
+    console.log(activeMobile);
+  }
+
   if (loading) return "Loading..";
 
   return (
@@ -70,6 +81,8 @@ function App() {
           toNextPage={NextPage}
           toPrevPage={PrevPage}
           handleInput={handleInput}
+          activeMobileFunc={activeMobileFunc}
+          isActive={activeMobile}
         />
         <div className="right">
           <Switch>
