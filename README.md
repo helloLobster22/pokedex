@@ -16,13 +16,13 @@ This project was created as a task from Allegro: Front-end Software Engineer, In
 ## Features
 
 On the left side, there is a list where you can choose pokemon. Information about him will render on the right side, on black screen. In the left bottom corner, there is pagination. In the left top corner, just after a big Pokeball, there is a search bar. You can filter pokemon there typing his name.
-![alt text](./src/assets/pokedex.png =400x)
+![pokedex](./src/assets/pokedex.png =400x)
 
 Start to type the name of pokemon in the search bar and below will be listed matched pokemon.
-![alt text](./src/assets/search.png =300x)
+![search_bar](./src/assets/search.png =300x)
 
 On the mobile view, you can get the pokemon list and search bar by click on Pokeball on the bottom.
-![alt text](./src/assets/mobileBefore.png =300x) => ![alt text](./src/assets/mobileAfter.png =300x)
+![mobile_before](./src/assets/mobileBefore.png =300x) => ![mobile_after](./src/assets/mobileAfter.png =300x)
 
 ## Technologies
 
