@@ -34,7 +34,24 @@ export default function InfoBox({ match }) {
     setLoading(false);
   };
 
-  if (loading) return "Loading..";
+  if (loading) {
+    return (
+      <section
+        className="infoBox"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          textAlign: "center",
+        }}
+      >
+        <h1>Welcome to POKEDEX!</h1>
+        <br />
+        <p>You can check information about every Pokemon here.</p>
+      </section>
+    );
+  }
 
   return (
     <section className="infoBox">

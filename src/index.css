@@ -21,8 +21,6 @@
 }
 
 /* Browse Section */
-.browseBox {
-}
 .favPokeball {
   width: 200px;
   transform: translate(-14%, -10%);
@@ -66,7 +64,8 @@
   margin-bottom: 6px;
 }
 .pokemonIndex:hover {
-  background-color: aqua;
+  color: rgb(179, 48, 46);
+  font-size: 18px;
   transition: 0.2s;
 }
 
@@ -127,16 +126,20 @@
 .search {
   position: absolute;
   top: 210px;
-  left: 35px;
+  left: 37px;
 }
 .search > input[type="text"] {
   width: 125px;
-  border: 2px solid #ccc;
+  border: 6px solid rgb(179, 48, 46);
+  border-radius: 2px;
+  font-weight: 800;
+  background-color: #000000;
+  color: #ffffff;
   transition: 0.3s;
 }
 .search > input[type="text"]:focus {
   outline: none;
-  border: 2px solid #555;
+  box-shadow: 0px 0px 12px 2px rgba(217, 230, 101, 1);
 }
 
 @media only screen and (max-width: 745px) {
@@ -217,7 +220,7 @@
     border-radius: 10px;
     transform: translateX(50%);
     transition: 0.3s;
-    padding: 3vh 0;
+    padding: 9vh 0;
   }
   .pokemonIndex {
     color: #ffffff;
@@ -226,7 +229,7 @@
   .search {
     display: none;
     z-index: 100;
-    top: 70vh;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
   }

@@ -66,7 +66,6 @@ function App() {
 
   function activeMobileFunc() {
     setActiveMobile(!activeMobile);
-    console.log(activeMobile);
   }
 
   if (loading) return "Loading..";
@@ -86,7 +85,7 @@ function App() {
         />
         <div className="right">
           <Switch>
-            <Route path="/home" exact component={InfoBox} />
+            <Route path="/" exact component={InfoBox} />
             <Route path="/:pokemonName" component={InfoBox} />
           </Switch>
         </div>
