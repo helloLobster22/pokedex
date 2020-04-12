@@ -20,9 +20,11 @@ On the left side, there is a list where you can choose pokemon. Information abou
 <img src="./src/assets/pokedex.png" alt="pokedex" width="400px">
 
 Start to type the name of pokemon in the search bar and below will be listed matched pokemon.
-![search_bar](./src/assets/search.png)
+
+<img src="./src/assets/search.png" alt="pokedex">
 
 On the mobile view, you can get the pokemon list and search bar by click on Pokeball on the bottom.
+
 <img src="./src/assets/mobileBefore.png" alt="pokedex" width="300px"> => <img src="./src/assets/mobileAfter.png" alt="pokedex" width="300px">
 
 ## Technologies
